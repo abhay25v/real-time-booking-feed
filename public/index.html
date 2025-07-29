@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Bookings Viewer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="title-section">
+                <h1>Live Bookings Viewer</h1>
+                <p>Real-time booking monitoring dashboard</p>
+            </div>
+            <div class="live-indicator">
+                <span></span> Live
+            </div>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-info">
+                    <p class="stat-title">Total Bookings</p>
+                    <p class="stat-value" id="total-bookings">0</p>
+                </div>
+                <i data-lucide="calendar" class="stat-icon"></i>
+            </div>
+            <div class="stat-card">
+                <div class="stat-info">
+                    <p class="stat-title">Today's Bookings</p>
+                    <p class="stat-value" id="today-bookings">0</p>
+                </div>
+                <i data-lucide="trending-up" class="stat-icon green"></i>
+            </div>
+            <div class="stat-card">
+                <div class="stat-info">
+                    <p class="stat-title">Total Guests</p>
+                    <p class="stat-value" id="total-guests">0</p>
+                </div>
+                <i data-lucide="users" class="stat-icon"></i>
+            </div>
+            <div class="stat-card">
+                <div class="stat-info">
+                    <p class="stat-title">Est. Revenue</p>
+                    <p class="stat-value" id="est-revenue">$0</p>
+                </div>
+                <i data-lucide="dollar-sign" class="stat-icon green"></i>
+            </div>
+        </section>
+
+        <main>
+            <div class="recent-bookings-header">
+                <h2>Recent Bookings (<span id="recent-count">0</span>)</h2>
+                <div class="receiving-indicator">
+                    Receiving Live Updates
+                </div>
+            </div>
+            <ul id="bookings-list">
+                </ul>
+        </main>
+    </div>
+    
+    <div id="toast-container"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

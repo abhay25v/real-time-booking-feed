@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #f8f9fa;
+    --card-bg-color: #ffffff;
+    --text-color: #212529;
+    --muted-text-color: #6c757d;
+    --border-color: #e9ecef;
+    --primary-color: #0d6efd;
+    --green-color: #198754;
+    --purple-color: #6f42c1;
+    --orange-color: #fd7e14;
+    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+header p {
+    color: var(--muted-text-color);
+    margin: 0.25rem 0 0;
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 9999px;
+}
+
+.live-indicator span {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.stat-card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.stat-title {
+    font-size: 0.9rem;
+    color: var(--muted-text-color);
+    margin: 0 0 0.5rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.stat-icon {
+    color: var(--primary-color);
+    width: 28px;
+    height: 28px;
+}
+
+.stat-icon.green {
+    color: var(--green-color);
+}
+
+.recent-bookings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.recent-bookings-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.receiving-indicator {
+    font-weight: 500;
+    color: var(--green-color);
+    background-color: #e6f9f1;
+    padding: 0.4rem 0.8rem;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    animation: pulse-bg 2s infinite;
+}
+
+#bookings-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.booking-card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--box-shadow);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.venue-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.venue-info i {
+    color: var(--primary-color);
+}
+
+.venue-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.customer-info p {
+    color: var(--muted-text-color);
+    margin: 0.25rem 0 0;
+    font-size: 0.9rem;
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}
+
+.status-confirmed {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.status-pending {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+
+.booking-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.detail-item {
+    font-size: 0.9rem;
+}
+
+.detail-item .label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted-text-color);
+    margin-bottom: 0.25rem;
+}
+
+.detail-item .value {
+    font-weight: 500;
+    padding-left: 1.75rem; /* Align with label text */
+}
+
+/* Toast Notification */
+#toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.toast {
+    background-color: #212529;
+    color: #f8f9fa;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    animation: toast-in 0.5s ease;
+}
+
+.toast.fade-out {
+    animation: toast-out 0.5s ease forwards;
+}
+
+@keyframes toast-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes toast-out {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes pulse-bg {
+    0%, 100% { background-color: #e6f9f1; }
+    50% { background-color: #ccefe0; }
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
